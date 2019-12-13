@@ -1,4 +1,10 @@
 
+# Basic/Basic
+Basic/Basic.sln
+Basic/main/main.vcxproj
+Basic/main/main.vcxproj.filters
+Basic/main/main.vcxproj
+
 # Basic/.vs 
 Basic/.vs/
 
@@ -7,6 +13,14 @@ Basic/x64/
 
 # Basic/main/x64
 Basic/main/x64
+
+# OnlineJudge/OnlineJudge
+OnlineJudge/OnlineJudge.sln
+
+# OnlineJudge/main
+OnlineJudge/main/main.vcxproj
+OnlineJudge/main/main.vcxproj.filters
+OnlineJudge/main/main.vcxproj.user
 
 # OnlineJudge/.vs
 OnlineJudge/.vs
