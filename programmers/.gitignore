@@ -1,0 +1,11 @@
+
+algo/.vs
+algo/Debug/
+algo/x64/
+algo/algo.sln
+algo/algo/Debug/
+algo/algo/x64/
+algo/algo/*.vcxproj
+algo/algo/*.filters
+algo/algo/*.user
+algo/algo/*.aps
