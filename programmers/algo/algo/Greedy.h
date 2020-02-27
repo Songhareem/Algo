@@ -1,15 +1,14 @@
 #pragma once
 #include "Object.h"
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
-class SortQ : public Object
+class Greedy : public Object
 {
-public:
+public :
 	virtual void run();
 
-	vector<int> kthNumber();
+	int gymSuit();
 };
 
