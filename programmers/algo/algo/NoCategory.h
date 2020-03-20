@@ -2,6 +2,7 @@
 #include "Object.h"
 #include <string>
 #include <vector>
+#include <map>
 #include <algorithm>
 
 using namespace std;
@@ -18,5 +19,9 @@ public :
 	vector<int> hateSameNumber();
 
 	vector<int> dividedNumberArray();
+
+	long long sumBetweenTwoIntegers();
+
+	vector<string> stringSortHowIWant();
 };
 
