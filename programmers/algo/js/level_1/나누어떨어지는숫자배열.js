@@ -23,7 +23,8 @@
 // 3, 2, 6은 10으로 나누어 떨어지지 않습니다. 나누어 떨어지는 원소가 없으므로 [-1]을 리턴합니다.
 
 // 배운점
-// 
+// sort((a,b) => a-b) 오름차순 복습
+// sort((a,b) => b-a) 내림차순
 
 function solution(arr, divisor) {
     var answer = [];
