@@ -8,11 +8,6 @@ function solution(s){
     return s.toUpperCase().split('P').length === s.toUpperCase().split('Y').length ? true:false;
 }
 
-function solution2(s) {
-    
-    return s.match(/p/ig).length == s.match(/y/ig).length;
-}
-
 var s = "PPYy";
 console.log(solution(s));
 console.log(solution2(s));
