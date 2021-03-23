@@ -22,9 +22,10 @@
 // 입출력 예 #4
 // 13의 모든 자릿수의 합은 4입니다. 13은 4로 나누어 떨어지지 않으므로 13은 하샤드 수가 아닙니다.
 
+// 배운점
+// 조건식 === 0? true:false 를 할 일이 있다면, !(조건식) 으로 변경! (조금 더 빠름)
 function solution(x) {
-    var answer = true;
-    return answer;
+    return x%(String(x).split("").reduce((a,b) => (+a)+(+b))) === 0? true:false;
 }
 
 var x = 10;
