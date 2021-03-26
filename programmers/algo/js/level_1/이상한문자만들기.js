@@ -16,25 +16,31 @@
 // 각 단어의 짝수번째 문자를 소문자로, 홀수번째 문자를 대문자로 바꾸면 "TrY", "HeLlO", "WoRlD"입니다. 
 // 따라서 "TrY HeLlO WoRlD" 를 리턴합니다.
 
+// 배운점
+// 1) String은 forEach / map 둘다 불가능
+//    for을 사용하여 각 index 접근 가능
+//
+// 2) map 안에 map 보단 map 안에 for이 효율이 좋음 (캐시 히트때문이라고 예상중)
+
 function solution(s) {
 
-    return s.split(" ").map(word => {
-        return word.split("").map((char, index) => 
-            index%2? char.toLowerCase():char.toUpperCase()
-        ).join("");
-    }).join(" ");
+    // return s.split(" ").map(word => {
+    //     return word.split("").map((char, index) => 
+    //         index%2? char.toLowerCase():char.toUpperCase()
+    //     ).join("");
+    // }).join(" ");
 
-    // return s.split(' ').map(word => {
-    //     let result = '';
-    //     for(let i = 0; i < word.length; i++) {
-    //         if(i%2) {
-    //             result += word[i].toLowerCase();
-    //         } else {
-    //             result += word[i].toUpperCase();
-    //         }
-    //     }
-    //     return result;
-    // }).join(' ');
+    return s.split(' ').map(word => {
+        let result = '';
+        for(let i = 0; i < word.length; i++) {
+            if(i%2) {
+                result += word[i].toLowerCase();
+            } else {
+                result += word[i].toUpperCase();
+            }
+        }
+        return result;
+    }).join(' ');
 }
 
 var s = "try hello world";
