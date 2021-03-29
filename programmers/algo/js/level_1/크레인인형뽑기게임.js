@@ -29,12 +29,63 @@
 // 입출력 예에 대한 설명
 // 입출력 예 #1
 
-// 인형의 처음 상태는 문제에 주어진 예시와 같습니다. 크레인이 [1, 5, 3, 5, 1, 2, 1, 4] 번 위치에서 차례대로 인형을 집어서 바구니에 옮겨 담은 후, 상태는 아래 그림과 같으며 바구니에 담는 과정에서 터트려져 사라진 인형은 4개 입니다.
+// 인형의 처음 상태는 문제에 주어진 예시와 같습니다. 
+// 크레인이 [1, 5, 3, 5, 1, 2, 1, 4] 번 위치에서 차례대로 인형을 집어서 바구니에 옮겨 담은 후, 
+// 상태는 아래 그림과 같으며 바구니에 담는 과정에서 터트려져 사라진 인형은 4개 입니다.
 
-function solution(board, moves, result) {
+// 배운점
+// 1) Array.pop(): 뒤에서 뽑는다
+// 2) forEach에서 continue?
+//  - continue 대신 return을 사용
+function solution(board, moves) {
 
+    var basket=[];
+    var cnt=0;
+
+    moves.forEach(move => {
+        //console.log(move);
+        var doll=0;
+        for(var line=0; line<board.length; line++) {
+            if(board[line][move-1] !== 0) {
+                doll=board[line][move-1];
+                board[line][move-1]=0;
+                break;
+            }
+        }
+        //console.log(doll);
+        if(doll === 0) {
+            return;
+        }
+        if(basket.length === 0) {
+            basket.push(doll);
+            return;
+        }
+        
+        if(basket[basket.length-1] === doll) {
+            basket.pop();
+            cnt+=2;
+        } else {
+            basket.push(doll);
+        }
+    });
+
+    return cnt;
 }
 
-var board = [[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]];
+var board = [
+                [0,0,0,0,0],
+                [0,0,1,0,3],
+                [0,2,5,0,1],
+                [4,2,4,4,2],
+                [3,5,1,3,1]
+            ];
+            //[4,2,0,4] 1,1, 3,3 터져서 4개
+            // var board = [
+            //     [0,0,0,0,0],
+            //     [0,0,0,0,0],
+            //     [0,0,5,0,0],
+            //     [0,2,4,4,2],
+            //     [0,5,1,3,1]
+            // ];
 var moves = [1,5,3,5,1,2,1,4];
-var result = 4;
+console.log(solution(board, moves));
