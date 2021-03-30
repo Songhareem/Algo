@@ -39,7 +39,14 @@
 // arr2	[27 ,56, 19, 14, 14, 10]
 //
 // 출력	["######", "###  #", "##  ##", " #### ", " #####", "### # "]
-
+//
+// 매개변수 값
+// n    5
+// arr1 [0, 0, 0, 0, 0]
+// arr2 [30, 1, 21, 17, 28]
+//
+// 출력 []
+//
 // 풀이 
 // 윗수 아랫수 OR 연산
 // 합쳐진 수를 이진수로 변환하여 1 => '#' 0 => ' ' 변환
@@ -55,12 +62,14 @@ function solution(n, arr1, arr2) {
     
     var arr=[];
     for(var i=0; i<n; i++) {
-        arr[i] = (arr1[i]|arr2[i]).toString(2).split("").map(a => a === '1'? '#':' ').join("");
+        var bin = (arr1[i]|arr2[i]).toString(2); 
+        arr[i] = (bin.length<n? "0".repeat(n-bin.length)+bin:bin)
+            .split("").map(a => a === '1'? '#':' ').join("");
     }
     return arr;
 }
 
-var n=6;
-var arr1=[46, 33, 33 ,22, 31, 50];
-var arr2=[27 ,56, 19, 14, 14, 10];
+var n=5;
+var arr1=[0,0,0,0,0];
+var arr2=[30, 1, 21, 17, 28];
 console.log(solution(n,arr1,arr2));
