@@ -97,4 +97,16 @@ var Graph = ( function() {
 })();
 
 var graph = new Graph();
-graph.insertVertex
+graph.insertVertex('A');
+graph.insertVertex('B');
+graph.insertVertex('C');
+graph.insertVertex('D');
+graph.insertVertex('E');
+graph.insertVertex('F');
+graph.insertArc(1, 'A', 'B');
+graph.insertArc(1, 'B', 'C');
+graph.insertArc(1, 'B', 'E');
+graph.insertArc(1, 'C', 'E');
+graph.insertArc(1, 'C', 'D');
+graph.insertArc(1, 'E', 'D');
+graph.insertArc(1, 'E', 'F');

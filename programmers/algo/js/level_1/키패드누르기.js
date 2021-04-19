@@ -57,7 +57,7 @@
 // 오른손잡이가 [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]를 순서대로 누르면 사용한 손은 "LLRLLRLLRL"이 됩니다.
 
 // 배운점
-// 그래프 및 DFS(최단거리) 사용해야할것 같음
+// 그래프 및 BFS(최단거리) 사용해야할것 같음
 // 1) 그래프의 표현 
 //  - 이차원배열 구현(행렬)
 //  - 연결리스트로 구현(연결된 노드를 가지는 이중 Array)
@@ -67,6 +67,6 @@ function solution(numbers, hand) {
     return answer;
 }
 
-var numbers;
-var hand;
+var numbers = [1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5];
+var hand = "right";
 console.log(solution(number, hand));
