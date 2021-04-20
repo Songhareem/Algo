@@ -57,16 +57,57 @@
 // 오른손잡이가 [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]를 순서대로 누르면 사용한 손은 "LLRLLRLLRL"이 됩니다.
 
 // 배운점
-// 그래프 및 BFS(최단거리) 사용해야할것 같음
-// 1) 그래프의 표현 
-//  - 이차원배열 구현(행렬)
-//  - 연결리스트로 구현(연결된 노드를 가지는 이중 Array)
+// 행렬
+// 행렬의 거리값을 사용하여 풂
 
 function solution(numbers, hand) {
     var answer = '';
+    var eachLocation = new Map([
+        ['1', [0,0]], ['2',[0,1]], ['3',[0,2]],
+        ['4', [1,0]], ['5',[1,1]], ['6',[1,2]],
+        ['7', [2,0]], ['8',[2,1]], ['9',[2,2]],
+        ['*', [3,0]], ['0',[3,1]], ['#',[3,2]],
+    ]);
+
+    var leftHand = '*';
+    var rightHand = '#';
+    
+    numbers.forEach(element => {
+        if(element === 1 || element === 4 || element === 7) {
+            leftHand = String(element);
+            answer += 'L';
+        } else if(element === 3 || element === 6 || element === 9) {
+            rightHand = String(element);
+            answer += 'R';
+        } else {
+            var target = String(element);
+            //console.log(target, leftHand, rightHand);
+            var leftDistance = Math.abs(eachLocation.get(leftHand)[0] - eachLocation.get(target)[0]) +
+                                Math.abs(eachLocation.get(leftHand)[1] - eachLocation.get(target)[1]);
+            var rightDistance = Math.abs(eachLocation.get(rightHand)[0] - eachLocation.get(target)[0]) +
+                                Math.abs(eachLocation.get(rightHand)[1] - eachLocation.get(target)[1]);
+            //console.log(leftDistance, rightDistance);
+            if(leftDistance < rightDistance) {
+                leftHand = String(element);
+                answer += 'L';
+            } else if(leftDistance > rightDistance) {
+                rightHand = String(element);
+                answer += 'R';
+            } else {
+                if(hand === "left") {
+                    leftHand = String(element);
+                    answer += 'L';
+                } else {
+                    rightHand = String(element);
+                    answer += 'R';
+                }
+            }
+        }
+    });
+
     return answer;
 }
 
-var numbers = [1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5];
-var hand = "right";
-console.log(solution(number, hand));
+var numbers = [7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2];
+var hand = "left";
+console.log(solution(numbers, hand));
