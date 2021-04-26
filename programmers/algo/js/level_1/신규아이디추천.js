@@ -94,6 +94,12 @@
 // 6단계 "abcdefghijklmn.p" → "abcdefghijklmn." → "abcdefghijklmn"
 // 7단계 변화 없습니다.
 
+// 배운점
+// 문자열 다루기 복슴
+// 대소문자 변경
+// for문 도중 삭제 (Array)
+// 연속된 중복 문자 삭제
+// 문자 반복
 function solution(new_id) {
     var answer = '';
     console.log(new_id);
